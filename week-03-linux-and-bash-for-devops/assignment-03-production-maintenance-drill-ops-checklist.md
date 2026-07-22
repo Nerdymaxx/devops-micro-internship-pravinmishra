@@ -250,20 +250,18 @@ Simulate a real-world Nginx misconfiguration and recover the service safely.
 ### Evidence
 
 #### Screenshot 1 — Output of `sudo nginx -t` showing the syntax error (broken config)
-
-Add your screenshot here.
+![syntax error](./screenshots/ss26.png)
 
 ---
 
 #### Screenshot 2 — Output of `sudo nginx -t` showing syntax ok (fixed config)
 
-Add your screenshot here.
+![fixed config](./screenshots/ss27.png)
 
 ---
 
 #### Screenshot 3 — Output of `curl -I http://<public-ip>` confirming recovery (200 OK)
-
-Add your screenshot here.
+![200 OK ](./screenshots/ss28.png)
 
 ---
 
@@ -273,19 +271,17 @@ Answer the following in your own words:
 
 **1. What caused the configuration failure?**
 
-Write your answer here.
+I intentionally misspelled a directive in the Nginx configuration block.
 
 ---
 
 **2. How did you fix the issue?**
 
-Write your answer here.
-
+To fix the misconfiguration, I opened the main Nginx configuration file using a text editor (sudo nano /etc/nginx/nginx.conf). I located the line containing the syntax error (the misspelled sendfil directive) and corrected the typo back to the valid Nginx directive (sendfile on;). After saving the file, I ran sudo nginx -t again to confirm the syntax was successfully resolved. Finally, I executed sudo systemctl reload nginx to safely apply the corrected configuration without dropping any active user connections.
 ---
 
 **3. How can you avoid this kind of issue in real production systems?**
-
-Write your answer here.
+by completely removing manual terminal edits from the production environment. Instead of SSHing into a server to run nano, I treat my server configuration exactly like i treat application code
 
 ---
 
@@ -299,14 +295,14 @@ Simulate missing deployment content and recover the application safely.
 
 #### Screenshot 1 — Output of `curl -I http://<public-ip>` showing failure (non-200 response)
 
-Add your screenshot here.
+![non-200 response](./screenshots/ss29.png)
 
 ---
 
 #### Screenshot 2 — Output of `curl -I http://<public-ip>` confirming recovery (200 OK)
 
-Add your screenshot here.
 
+![200-OK response](./screenshots/ss30.png)
 ---
 
 ### Notes
@@ -314,20 +310,20 @@ Add your screenshot here.
 Answer the following in your own words:
 
 **1. What caused the application to break in this scenario?**
+The application broke because the file permissions on the web root (e.g., index.html) were incorrectly modified, stripping the read permissions from the Nginx worker process. Because Nginx could not read the file to serve it, it correctly returned an HTTP 403 Forbidden status to the client.
 
-Write your answer here
 
 ---
 
 **2. How did you fix the issue and restore the application?**
 
-Write your answer here.
+I restored the application by identifying the permission mismatch and running chmod 644 /var/www/html/index.html. This granted read access back to the Nginx www-data user. I then ran curl -I again to verify that the server was successfully returning a 200 OK response.
 
 ---
 
 **3. What steps would you take to prevent this kind of issue in real production systems?**
 
-Write your answer here.
+i will enforce immutable file permissions  during deployment processes
 
 ---
 
@@ -343,31 +339,30 @@ Answer the following in your own words:
 
 **1. Why is SSH key-based authentication more secure than sharing passwords?**
 
-Write your answer here.
+Passwords can be intercepted, guessed, or compromised via brute-force attacks. SSH keys rely on asymmetric cryptography using a public and private key pair. Brute-forcing a standard RSA or Ed25519 cryptographic key is mathematically infeasible, and because the private key never leaves the client's machine, it cannot be intercepted over the network.
 
 ---
 
 **2. Why should only required ports be open on a production server?**
 
-Write your answer here.
-
+Every open port is a potential entry point for attackers, leaving unnecessary ports open exposes unpatched services to exploitation. Closing unused ports strictly minimizes the server's attack surface.
 ---
 
 **3. Why is it important for Nginx to be enabled on boot?**
 
-Write your answer here.
+Enabling a service on boot guarantees high availability and reliability. If the host machine undergoes unexpected maintenance, experiences a hardware crash, or reboots, systemd will automatically start Nginx. This restores the web application immediately without requiring a system administrator to manually SSH into the server to restart the service.
 
 ---
 
 **4. What are the risks of sharing secrets, keys, or credentials publicly?**
 
-Write your answer here.
+xposing secrets (like AWS access keys or database passwords) on public repositories can lead to immediate infrastructure compromise.
 
 ---
 
 **5. Why should cloud resources be stopped or terminated when they are no longer needed?**
 
-Write your answer here.
+Terminating idle resources enforces cost optimization, ensuring you only pay for what you actively usegi
 
 ---
 
