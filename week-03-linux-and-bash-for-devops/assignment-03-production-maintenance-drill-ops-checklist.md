@@ -1,3 +1,4 @@
+
 # Assignment 3 — Production Maintenance Drill (OPS Checklist)
 
 Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
@@ -20,25 +21,25 @@ Verify that the deployed React application is reachable from the browser and con
 
 #### Screenshot 1 — Browser showing the React app with your Full Name visible on the UI
 
-Add your screenshot here.
+![react app browser](./screenshots/ss47.png)
 
 ---
 
 #### Screenshot 2 — Output of `ip a`
 
-Add your screenshot here.
+![ip a output](./screenshots/ss32.png)
 
 ---
 
 #### Screenshot 3 — Output of `sudo ss -tulpen`
 
-Add your screenshot here.
+![ss -tulpen output](./screenshots/ss33.png)
 
 ---
 
 #### Screenshot 4 — Output of `sudo ufw status`
 
-Add your screenshot here.
+![ufw status inactive](./screenshots/ss34.png)
 
 ---
 
@@ -48,19 +49,19 @@ Answer the following in your own words:
 
 **1. What proves Nginx is listening on 0.0.0.0:80?**
 
-Write your answer here.
+In the `sudo ss -tulpen` output, there's a line showing `tcp LISTEN 0 511 0.0.0.0:80` with three `nginx` processes attached to that socket (master + workers). The `0.0.0.0:80` address means Nginx is bound to port 80 on every network interface, not just localhost, so it accepts connections from any client, which matches the app being reachable from a browser over the public IP.
 
 ---
 
 **2. What proves SSH is active on port 22?**
 
-Write your answer here.
+The same `ss -tulpen` output shows `tcp LISTEN 0 4096 0.0.0.0:22` and `[::]:22`, owned by the `sshd` process. That confirms the SSH daemon is up and listening on both IPv4 and IPv6, which is exactly how I'm able to be connected to this VM right now.
 
 ---
 
 **3. Did you find any unexpected open ports? Explain briefly.**
 
-Write your answer here.
+No unexpected ports. Everything listening is accounted for: Nginx on 80, sshd on 22, and a handful of internal-only services bound to loopback/link-local addresses (`systemd-resolved` on `127.0.0.53:53` for DNS, `chronyd` on `127.0.0.53`/`[::1]:323` for time sync). None of those internal services are reachable from outside the VM, so the actual external attack surface is just the two ports I intended to expose.
 
 ---
 
@@ -74,19 +75,19 @@ Verify that Nginx is properly installed, running, enabled at boot, and safely co
 
 #### Screenshot 1 — Output of `systemctl status nginx --no-pager`
 
-Add your screenshot here.
+![nginx active running](./screenshots/ss35.png)
 
 ---
 
 #### Screenshot 2 — Output of `sudo nginx -t`
 
-Add your screenshot here.
+![nginx -t syntax ok](./screenshots/ss36.png)
 
 ---
 
 #### Screenshot 3 — Output of `sudo ss -lptn '( sport = :80 )'`
 
-Add your screenshot here.
+![port 80 listener](./screenshots/ss37.png)
 
 ---
 
@@ -96,13 +97,13 @@ Answer the following in your own words:
 
 **1. What happens if Nginx fails to restart in production?**
 
-Write your answer here.
+If Nginx fails to restart, the web server stops accepting connections on port 80 entirely, so every visitor gets a connection error (site fully down) instead of a slow page or partial content — there's no fallback, since Nginx is the only thing serving the app. Systemd will usually attempt a few automatic restarts, but if the failure is caused by a bad config (like the one I intentionally broke in Task 6), it will just fail the same way every time until the config is fixed, so this needs a human (or automation) to catch and resolve it quickly.
 
 ---
 
 **2. What's your basic rollback plan?**
 
-Write your answer here.
+Nginx keeps running on its last-known-good config in memory until you explicitly reload it, so the safest rollback is: run `sudo nginx -t` before ever reloading to catch syntax errors ahead of time, and if a bad config already got applied, revert the config file to the previous version (I'd keep it in git or a timestamped backup copy) and run `sudo systemctl restart nginx` again. Because I validate with `nginx -t` before `reload`/`restart`, a broken config never actually takes down a currently-running server — it only fails to *start*, which is a strong safety net.
 
 ---
 
@@ -116,19 +117,19 @@ Verify real traffic flow and analyze logs to understand system behavior and erro
 
 #### Screenshot 1 — Output of `sudo tail -n 30 /var/log/nginx/access.log`
 
-Add your screenshot here.
+![access log tail](./screenshots/ss38.png)
 
 ---
 
 #### Screenshot 2 — Output of `sudo tail -n 30 /var/log/nginx/error.log`
 
-Add your screenshot here.
+![error log tail empty](./screenshots/ss39.png)
 
 ---
 
 #### Screenshot 3 — Output of `sudo journalctl -u nginx --no-pager -n 50`
 
-Add your screenshot here.
+![journalctl nginx](./screenshots/ss40.png)
 
 ---
 
@@ -141,19 +142,19 @@ Answer the following in your own words:
 - If yes, mention 1–2 example error lines from the logs and explain what each one means in simple terms.
 - If no, explain what it means if the error log is empty or shows no recent errors during your check.
 
-Write your answer here.
+No errors — `sudo tail -n 30 /var/log/nginx/error.log` returned nothing at all. An empty error log means Nginx hasn't hit any problem it considered worth logging (no failed upstream connections, no permission issues, no config reload failures) during the period the log covers, so the server has been serving requests cleanly.
 
 ---
 
 **2. If there were no errors, what does that indicate about the system?**
 
-Write your answer here.
+It indicates the web server itself is healthy and stable — Nginx is serving every request it receives without crashing, timing out, or hitting a filesystem/permission problem. It doesn't guarantee the *application* is bug-free (client-side React errors wouldn't show up in an Nginx log at all), only that the server layer is functioning correctly.
 
 ---
 
 **3. Based on the access logs, were your curl requests visible in the log entries? What does that prove about traffic flow?**
 
-Write your answer here.
+The access log tail I captured showed real inbound HTTP requests logged with full detail (source IP, timestamp, request path, status code, user agent) — in my case it happened to catch a batch of automated scanner traffic (repeated GET requests probing for PHP vulnerability paths from IP 192.34.62.126) rather than my own manual curl checks, since those checks were made afterward. That still proves the same thing: every request that reaches Nginx, whether it's a browser, curl, or a bot, gets written to `access.log`, confirming the access log is a reliable, complete record of traffic hitting the server.
 
 ---
 
@@ -167,25 +168,25 @@ Assess server capacity and detect potential performance or failure risks.
 
 #### Screenshot 1 — Output of `uptime`
 
-Add your screenshot here.
+![uptime](./screenshots/ss41.png)
 
 ---
 
 #### Screenshot 2 — Output of `free -h`
 
-Add your screenshot here.
+![free -h](./screenshots/ss42.png)
 
 ---
 
 #### Screenshot 3 — Output of `df -h`
 
-Add your screenshot here.
+![df -h](./screenshots/ss43.png)
 
 ---
 
 #### Screenshot 4 — Output of `sudo du -sh /var/* | sort -h`
 
-Add your screenshot here.
+![du -sh var](./screenshots/ss44.png)
 
 ---
 
@@ -195,13 +196,13 @@ Answer the following in your own words:
 
 **1. Which resource looks most critical right now? (CPU/load, memory, or disk) Explain why.**
 
-Write your answer here.
+Disk is the resource closest to a concerning level: `df -h` shows the root filesystem (`/dev/root`) at 63% used (4.2G of 6.7G, only 2.5G free). CPU load is fine (`uptime` shows a load average of 0.00), and memory is comfortable too (`free -h` shows only 342Mi used out of 908Mi, with 565Mi still available) — though it's worth noting there's 0B of swap configured, so if memory usage ever did spike, there'd be no cushion before the OOM killer starts terminating processes. For now, disk is the one to watch since it has the least headroom relative to its total capacity.
 
 ---
 
 **2. What happens if disk becomes 100% full in a production server?**
 
-Write your answer here.
+A full disk stops the server from writing anything new: Nginx can't write to its access/error logs, the application can't write temp files or uploads, and even routine things like log rotation or apt operations start failing. Depending on what fills up, the OS itself can become unstable (systemd and other core services expect to be able to write to disk). Nginx would likely keep serving already-cached static files for a while, but the moment anything needs a disk write, requests start failing — so in practice a 100%-full disk is treated as a production outage.
 
 ---
 
@@ -215,19 +216,19 @@ Ensure the correct React build is deployed and Nginx is serving it properly.
 
 #### Screenshot 1 — Output of `ls -lah /var/www/html | head -n 20`
 
-Add your screenshot here.
+![deployed html contents](./screenshots/ss45.png)
 
 ---
 
 #### Screenshot 2 — Output of `grep -R "Deployed by" -n /var/www/html 2>/dev/null | head`
 
-Add your screenshot here.
+![grep deployed by](./screenshots/ss48.png)
 
 ---
 
 #### Screenshot 3 — Output of `grep -n "try_files" /etc/nginx/sites-available/default`
 
-Add your screenshot here.
+![try_files config](./screenshots/ss46.png)
 
 ---
 
@@ -237,7 +238,7 @@ Answer the following in your own words:
 
 **1. How do you confirm that the correct version of the application is deployed?**
 
-Write your answer here.
+Two ways: first, `ls -lah /var/www/html` shows the expected React build artifacts (`index.html`, `asset-manifest.json`, `static/`, `manifest.json`, etc.) all with the same `Jul 14 16:46` timestamp, matching when I ran `npm run build` — a stale deployment would show an older timestamp. Second, I embedded my full name and the deployment date directly into the app's footer, so opening the site in a browser (or `grep`-ing the served files for that string) is a quick visual/text confirmation that this specific build — not a cached or previous one — is what's actually live.
 
 ---
 
@@ -362,7 +363,7 @@ xposing secrets (like AWS access keys or database passwords) on public repositor
 
 **5. Why should cloud resources be stopped or terminated when they are no longer needed?**
 
-Terminating idle resources enforces cost optimization, ensuring you only pay for what you actively usegi
+Terminating idle resources enforces cost optimization, ensuring you only pay for what you actively use
 
 ---
 
@@ -374,13 +375,13 @@ Terminating idle resources enforces cost optimization, ensuring you only pay for
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+`https://www.linkedin.com/feed/update/urn:li:activity:7485251725528973313/`
 
 ---
 
 #### Screenshot — Published LinkedIn post
 
-Add your screenshot here.
+![linkedin post](./screenshots/ss49.png)
 
 ---
 
@@ -394,17 +395,17 @@ Add your screenshot here.
 
 # Completion Checklist
 
-- [ ] Task 1: Screenshots (browser, ip a, ss -tulpen, ufw status) + Notes answered
-- [ ] Task 2: Screenshots (nginx status, nginx -t, ss port 80) + Notes answered
-- [ ] Task 3: Screenshots (access log, error log, journalctl) + Notes answered
-- [ ] Task 4: Screenshots (uptime, free -h, df -h, du -sh) + Notes answered
-- [ ] Task 5: Screenshots (ls html, grep deployed by, grep try_files) + Notes answered
-- [ ] Task 6: Screenshots (nginx -t fail, nginx -t pass, curl recovery) + Notes answered
-- [ ] Task 7: Screenshots (curl failure, curl recovery) + Notes answered
-- [ ] Task 8: Security & Reliability Notes answered
-- [ ] LinkedIn post published and URL submitted
-- [ ] Full Name visible in all required screenshots
-- [ ] No sensitive data exposed
+- [x] Task 1: Screenshots (browser, ip a, ss -tulpen, ufw status) + Notes answered
+- [x] Task 2: Screenshots (nginx status, nginx -t, ss port 80) + Notes answered
+- [x] Task 3: Screenshots (access log, error log, journalctl) + Notes answered
+- [x] Task 4: Screenshots (uptime, free -h, df -h, du -sh) + Notes answered
+- [x] Task 5: Screenshots (ls html, grep deployed by, grep try_files) + Notes answered
+- [x] Task 6: Screenshots (nginx -t fail, nginx -t pass, curl recovery) + Notes answered
+- [x] Task 7: Screenshots (curl failure, curl recovery) + Notes answered
+- [x] Task 8: Security & Reliability Notes answered
+- [x] LinkedIn post published and URL submitted
+- [x] Full Name visible in all required screenshots
+- [x] No sensitive data exposed
 
 ---
 

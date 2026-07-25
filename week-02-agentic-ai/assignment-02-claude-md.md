@@ -20,7 +20,8 @@ Capture Claude’s response before `CLAUDE.md` exists in the project to establis
 
 #### Screenshot 1 — Claude’s generic response before CLAUDE.md exists (project contains only `index.html`, `style.css`, `images/`, `README.MD`, `privacy.html`, `terms.html`)
 
-Add your screenshot here.
+![claude's generic response](./screenshots/images/ss6.png)
+![claude's generic response continued](./screenshots/images/ss7.png)
 
 ---
 
@@ -34,7 +35,8 @@ Generate an initial `CLAUDE.md` file using the `/init` command and review the au
 
 #### Screenshot 2 — The auto-generated CLAUDE.md open in VS Code showing its content
 
-Add your screenshot here.
+![auto generated claude.md](./screenshots/images/ss8.png)
+![auto generated claude.md continued](./screenshots/images/ss9.png)
 
 ---
 
@@ -48,7 +50,7 @@ Update the generated `CLAUDE.md` file by adding project-specific instructions ac
 
 #### Screenshot 3 — Your customized CLAUDE.md in VS Code showing all 5 sections (scroll to show the full file)
 
-Add your screenshot here.
+![updated claude md](./screenshots/images/ss10.png)
 
 ---
 
@@ -62,13 +64,16 @@ Verify that Claude’s behavior changes after adding `CLAUDE.md` by running a ne
 
 #### Screenshot 4 — Claude's specific, detailed answer after reading CLAUDE.md (Claude mentioning S3, CloudFront and Terraform)
 
-Add your screenshot here.
+![claude's detailed response](./screenshots/images/ss11.png)
+![claude's detailed response continued](./screenshots/images/ss12.png)
+![claude's detailed response continued](./screenshots/images/ss13.png)
+![claude's detailed response continued](./screenshots/images/ss14.png)
 
 ---
 
 #### Screenshot 5 — Claude refusing or warning against adding React because of the "No JavaScript" convention defined in CLAUDE.md
 
-Add your screenshot here.
+![claude refusing to use react](./screenshots/images/ss15.png)
 
 ---
 
@@ -82,7 +87,8 @@ Commit the `CLAUDE.md` file and push it to your GitHub fork so the project instr
 
 #### Screenshot 6 — `CLAUDE.md` visible in your GitHub repository after pushing the commit
 
-Add your screenshot here.
+![commit to git](./screenshots/images/ss16.png)
+![claude.md committed](./screenshots/images/ss17.png)
 
 ---
 
@@ -98,7 +104,7 @@ Add your screenshot here.
 
 Paste your forked repository URL here:
 
-`Add your URL here`
+`git@github.com:Nerdymaxx/Ultimate-Agentic-DevOps-with-Claude-Code.git`
 
 ---
 

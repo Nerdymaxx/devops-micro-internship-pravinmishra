@@ -20,7 +20,7 @@ Create the `.claude/agents/` directory and add all required agent files.
 
 #### Screenshot 1 — VS Code sidebar showing `.claude/agents/` with all 3 files
 
-Add your screenshot here.
+![agent files](./screenshots/images/ss23.png)
 
 ---
 
@@ -34,19 +34,19 @@ Analyze the configuration differences between the three agents and demonstrate u
 
 #### 1. Why does the cost optimizer use Haiku instead of Sonnet?
 
-Add your answer here...
+The task is low-reasoning, high-recall.
 
 ---
 
 #### 2. Why does the security auditor NOT have Write in its tools list?
 
-Add your answer here...
+If the agent could just patch the Terraform itself, the review step will be lost and there'll be no record of what was wrong or why, which matters a lot for security findings specifically (we want an audit trail, not a silent diff).
 
 ---
 
 #### 3. Why does the tf-writer use `inherit` instead of a specific model?
 
-Add your answer here...
+Inherit ties the writer's capability to whatever model is driving the parent session, rather than locking it to a fixed tier the way cost-optimizer (haiku) and security-auditor (sonnet) are.
 
 ---
 
@@ -54,13 +54,13 @@ Add your answer here...
 
 #### Screenshot 2 — `security-auditor.md` frontmatter showing model and tools configuration
 
-Add your screenshot here.
+![security-auditor.md](./screenshots/images/ss24.png)
 
 ---
 
 #### Screenshot 3 — `cost-optimizer.md` frontmatter showing the model and tools configuration
 
-Add your screenshot here.
+![cost-optimizer.md](./screenshots/images/ss25.png)
 
 ---
 
@@ -74,13 +74,13 @@ Trigger the security auditor agent and analyze the generated security report for
 
 #### Screenshot 4 — The delegation message showing Claude launched the security-auditor
 
-Add your screenshot here.
+![security report](./screenshots/images/ss26.png)
 
 ---
 
 #### Screenshot 5 — Security audit report output
 
-Add your screenshot here.
+![audit report](./screenshots/images/ss27.png)
 
 ---
 
@@ -94,7 +94,8 @@ Trigger the cost optimizer agent and review the generated cost optimization repo
 
 #### Screenshot 6 — The full cost optimization report
 
-Add your screenshot here.
+![cost optimization](./screenshots/images/ss28.png)
+![cost optimization continued](./screenshots/images/ss29.png)
 
 ---
 
@@ -110,7 +111,7 @@ Add your screenshot here.
 
 Paste your forked repository URL here:
 
-`Add your URL here`
+`git@github.com:Nerdymaxx/Ultimate-Agentic-DevOps-with-Claude-Code.git`
 
 ---
 

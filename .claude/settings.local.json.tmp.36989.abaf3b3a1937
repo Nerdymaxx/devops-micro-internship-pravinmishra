@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git push *)",
+      "Bash(git fetch *)",
+      "Bash(git pull *)",
+      "Bash(git log *)",
+      "Bash(git config *)",
+      "Bash(git ls-tree *)",
+      "Bash(git branch *)",
+      "Bash(grep -E \"^ss1[2-7]\\\\.png$\")",
+      "Bash(git merge *)",
+      "Bash(git stash *)"
+    ]
+  }
+}

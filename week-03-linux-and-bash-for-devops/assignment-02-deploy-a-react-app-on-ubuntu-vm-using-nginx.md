@@ -130,7 +130,7 @@ Add your screenshot here.
 
 #### Screenshot 10 — Browser showing the deployed React app at `http://<public-ip>` with your name and date visible
 
-Add your screenshot here.
+![deployed react app](./screenshots/ss31.png)
 
 ---
 
