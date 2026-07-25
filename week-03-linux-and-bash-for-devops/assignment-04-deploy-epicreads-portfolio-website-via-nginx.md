@@ -1,4 +1,4 @@
-t# Assignment 4 — Deploy EpicReads Portfolio Website via Nginx
+# Assignment 4 — Deploy EpicReads Portfolio Website via Nginx
 
 Part of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI
 
@@ -20,7 +20,7 @@ Verify the Ubuntu VM and Nginx are ready for deployment.
 
 #### Screenshot 0 — Output of `sudo systemctl status nginx --no-pager` showing Active (running)
 
-Add your screenshot here.
+![nginx active running](./screenshots/ss35.png)
 
 ---
 
@@ -62,7 +62,7 @@ Deploy the portfolio website to the Nginx web root.
 
 #### Screenshot 3 — Output of `sudo nginx -t` showing configuration test successful
 
-Add your screenshot here.
+![nginx config test successful](./screenshots/ss36.png)
 
 ---
 
@@ -141,10 +141,10 @@ Add your screenshot here.
 
 # Completion Checklist
 
-- [ ] Screenshot 0: Nginx service status (active/running)
+- [x] Screenshot 0: Nginx service status (active/running)
 - [ ] Screenshot 1: Website files downloaded and extracted
 - [ ] Screenshot 2: Footer updated with Full Name, Group, Week, and Date
-- [ ] Screenshot 3: Nginx configuration test successful
+- [x] Screenshot 3: Nginx configuration test successful
 - [ ] Screenshot 4: Website files deployed to /var/www/html
 - [ ] Screenshot 5: Public IP retrieved
 - [ ] Screenshot 6: Live website accessible in browser with footer details
