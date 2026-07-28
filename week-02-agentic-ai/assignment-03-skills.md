@@ -96,7 +96,7 @@ Paste your forked repository URL here:
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+`https://www.linkedin.com/posts/chuka-unigwe_join-the-dmi-devops-micro-internship-share-7487943456858923008-s-av/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADapk6QB4YPpujCaTHNEjLTFzWs0c5QVFVQ`
 ---
 
 # Completion Checklist
@@ -110,7 +110,7 @@ Paste your LinkedIn post URL here:
 - [x] `/tf-plan` executed and output analyzed by Claude
 - [x] All required screenshots added
 - [x] GitHub repository URL included
-- [ ] LinkedIn post URL included
+- [x] LinkedIn post URL included
 
 ---
 

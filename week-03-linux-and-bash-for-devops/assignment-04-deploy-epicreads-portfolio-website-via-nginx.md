@@ -120,13 +120,13 @@ Verify the deployed website and Nginx service are healthy.
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+`https://www.linkedin.com/posts/chuka-unigwe_dmibypravinmishra-devops-linux-share-7487953696698380290-dacp/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADapk6QB4YPpujCaTHNEjLTFzWs0c5QVFVQ`
 
 ---
 
 #### Screenshot — Published LinkedIn post showing the live website with your Full Name in the footer
 
-Add your screenshot here.
+![published LinkedIn post about the EpicReads deployment](./screenshots/ss107.png)
 
 ---
 

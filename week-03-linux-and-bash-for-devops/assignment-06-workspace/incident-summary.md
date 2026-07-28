@@ -2,7 +2,7 @@
 
 **Full Name:** Chukwuka Miracle Unigwe
 
-**Date:** <fill in the date you ran the incident simulation>
+**Date:** 27/07/2026
 
 ---
 
@@ -33,7 +33,8 @@ requests.
 
 **4. Human-Approved Recovery Action**
 
-<state the exact command you reviewed and ran yourself, e.g. `sudo systemctl start nginx`>
+`sudo systemctl start nginx` — reviewed and run manually by the human operator after
+Claude presented it as a suggestion.
 
 ---
 

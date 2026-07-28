@@ -58,7 +58,7 @@ Confirm that your AWS account setup is complete by navigating to the Account sec
 
 #### Screenshot 1 — AWS Account page showing account name (email may be blurred)
 
-Add your screenshot here.
+![AWS account menu showing account name Unigwe Miracle and free plan status](./screenshots/ss96.png)
 
 ---
 

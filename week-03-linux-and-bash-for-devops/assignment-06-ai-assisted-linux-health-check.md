@@ -252,7 +252,7 @@ Turn the Bash script into a reusable, manually invoked Agentic AI workflow.
 
 #### Screenshot 11 — `SKILL.md` showing the frontmatter, allowed tool restrictions, and safety rules
 
-Add your screenshot here.
+![linux-triage SKILL.md frontmatter with allowed-tools and safety rules](./screenshots/ss108.png)
 
 ---
 
@@ -360,7 +360,7 @@ Recover the service as the human operator and prove that the system is healthy a
 
 #### Screenshot 16 — Output showing Nginx is active and `curl -I http://localhost` returns 200 OK
 
-Add your screenshot here.
+![nginx active and curl returning HTTP 200 OK](./screenshots/ss109.png)
 
 ---
 
@@ -378,7 +378,7 @@ Add your screenshot here.
 
 #### Screenshot 19 — `incident-summary.md` showing all required sections and your Full Name
 
-Add your screenshot here.
+![incident-summary.md with all seven sections and full name](./screenshots/ss110.png)
 
 ---
 
@@ -476,7 +476,7 @@ Gather: the Bash triage script collecting evidence. Analyze: Claude reading the 
 
 Paste your LinkedIn post URL here:
 
-`Add your URL here`
+`https://www.linkedin.com/posts/chuka-unigwe_dmibypravinmishra-devops-linux-share-7487958147333070848-8Ygm/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADapk6QB4YPpujCaTHNEjLTFzWs0c5QVFVQ`
 
 ---
 
