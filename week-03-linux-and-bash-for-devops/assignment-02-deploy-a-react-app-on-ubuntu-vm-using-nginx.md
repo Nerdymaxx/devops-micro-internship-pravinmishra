@@ -172,7 +172,7 @@ Add your screenshot here.
 - [ ] Public IP retrieved (Screenshot 9)
 - [ ] React app accessible in browser with personal details visible (Screenshot 10)
 - [ ] LinkedIn post published and URL submitted
-- [ ] No sensitive data exposed
+- [x] No sensitive data exposed
 
 ---
 

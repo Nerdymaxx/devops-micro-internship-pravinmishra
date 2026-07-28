@@ -46,7 +46,7 @@ You can publish your blog on:
 
 #### Screenshot 1 — Blog published and visible
 
-Add your screenshot here.
+![Reflection — Week 2 published on Medium](./screenshots/images/ss48.png)
 
 ---
 
@@ -54,7 +54,7 @@ Add your screenshot here.
 
 Blog Link:
 
-`Add your URL here`
+`https://medium.com/@nerdymax84/reflection-week-2-f30cbda51c4a`
 
 ---
 
@@ -92,7 +92,7 @@ Your post must include:
 
 #### Screenshot 2 — LinkedIn post published
 
-Add your screenshot here.
+![Week 2 reflection LinkedIn post published](./screenshots/images/ss49.png)
 
 ---
 
@@ -101,14 +101,29 @@ Add your screenshot here.
 LinkedIn Post Content (copy-paste here):
 
 ```
-Paste your LinkedIn post content here
+🚀 Week 2 Reflection: An Intentional shift from Static Automation to Agentic DevOps
+
+I just wrapped up Week 2 of the DevOps Micro Internship (DMI) Cohort 3 with Agentic AI, and the paradigm shift is real. This week wasn't about writing boilerplate automation; it was about learning how to orchestrate autonomous development loops within a terminal environment using Claude Code and the Model Context Protocol (MCP).
+
+Key Engineering Takeaways:
+🔹 Claude Code & Subagents: Moving away from isolated chat interfaces into stateful, terminal-driven environments. The goal isn't just prompt engineering; it's defining tight execution boundaries.
+🔹 Model Context Protocol (MCP): Bridging the gap between isolated context windows and local file systems, databases, or API documentations through clean protocol-driven data layers.
+🔹 Boundary Control: Utilizing Permissions and Hooks to enforce strict human-in-the-loop validation checkpoints before any state modifications occur.
+
+The biggest mental shift? Realizing that as engineers, our role is evolving into that of a Principal Architect. It's about building the sandbox, defining the invariants, and acting as an uncompromising filter for system execution.
+
+Excited to push deeper into these workflows for Week 3! let's go Pravin Mishra
+
+#DMIByPravinMishra #AgenticAI #ClaudeCode #DevOps #LearningInPublic #SystemsEngineering
+
+P.S. This post is a part of DevOps Micro Internship with Agentic AI Cohort-3 by Pravin Mishra. You can start your DevOps journey by joining this Discord community (https://lnkd.in/dYKQBcu6).
 ```
 
 ---
 
 ### LinkedIn Post Link:
 
-`Add your URL here`
+`https://www.linkedin.com/feed/update/urn:li:activity:7481352394849841152/`
 
 ---
 

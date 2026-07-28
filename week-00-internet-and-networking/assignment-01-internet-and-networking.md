@@ -27,14 +27,11 @@ Save your screenshot in the `screenshots` folder and update the file name below.
 
 ![Task 1 Screenshot](screenshots/task-1-chatgpt.png)
 
-
-Replace `task-1-chatgpt.png` with your actual screenshot file name.
-
 ---
 
 ## What I Learned (2–3 lines)
 
-Add your answer here...
+A protocol is simply an agreed set of rules that lets two computers communicate, just like two people agreeing on a common language before talking. I also learned that writing a detailed prompt (stating my level, the format I want, and asking for a real-life example) gets me a much clearer answer from ChatGPT than a one-line question.
 
 ---
 
@@ -59,7 +56,7 @@ Write a short explanation (**100–150 words**) that includes:
 
 ## Answer
 
-Add your answer here...
+When someone in India or Brazil opens EpicReads, their browser first needs the server's **IP address** — the unique numeric address that identifies your machine in Finland on the internet. The browser then talks to the server using **TCP/IP**: TCP breaks the request and the web page into small chunks, numbers them, and makes sure nothing is lost, while IP handles addressing and delivery. Those chunks travel by **packet switching** — each packet independently hops across routers and may even take different routes, then gets reassembled in the correct order at the destination. On top of this, the browser and server speak **HTTP** (or **HTTPS**, the encrypted version) — the language used to request pages and send back book listings, images, and checkout data securely. This layered system is why a single server in Finland can serve readers anywhere in the world within milliseconds.
 
 ---
 
@@ -91,10 +88,7 @@ EpicReads bookstore has two application versions:
 
 Save your diagram image in the `screenshots` folder and update the file name below.
 
-![Application Architecture Diagram](screenshots/task-3-diagram.png)
-
-
-Replace `task-3-diagram.png` with your actual diagram file name.
+![Application Architecture Diagram](screenshots/task-3-architecture-diagram.png)
 
 ---
 
@@ -102,18 +96,18 @@ Replace `task-3-diagram.png` with your actual diagram file name.
 
 ### Frontend
 
-* Add your answer here...
-* Add your answer here...
+* React (JavaScript library for building the bookstore UI)
+* HTML/CSS with Bootstrap (page structure and responsive styling)
 
 ### Backend
 
-* Add your answer here...
-* Add your answer here...
+* Node.js with Express (handles API requests like search, cart, checkout)
+* Python with Django (alternative full-featured backend framework)
 
 ### Database
 
-* Add your answer here...
-* Add your answer here...
+* PostgreSQL (relational DB for books, orders, and users)
+* MongoDB (NoSQL option for flexible catalog data)
 
 ---
 
@@ -142,7 +136,9 @@ In **50–100 words**, explain in your own words:
 
 ## Answer
 
-Add your answer here...
+DNS (Domain Name System) is the internet's phonebook: it translates human-friendly domain names like `epicreads.com` into the numeric IP addresses computers actually use, so visitors don't have to remember `52.172.142.222`.
+
+To connect the domain to this IP, an **A record** should be used, because an A record maps a domain name directly to an IPv4 address — which is exactly what `52.172.142.222` is. (Note: DNS only resolves the name to the IP; the port `3000` isn't part of DNS, so the app should ideally be served on standard port 80/443.)
 
 ---
 
@@ -180,9 +176,6 @@ Save your screenshot in the `screenshots` folder and update the file name below.
 
 ![VS Code Setup Screenshot](screenshots/task-5-vscode.png)
 
-
-Replace `task-5-vscode.png` with your actual screenshot file name.
-
 ---
 
 # 🔗 Task 6: Publish Your Assignment as a LinkedIn Post
@@ -218,7 +211,7 @@ Add the following credit note at the end of your post:
 Paste your LinkedIn post URL here:
 
 ```text
-Add your URL here...
+https://www.linkedin.com/posts/chuka-unigwe_so-i-just-wrapped-up-my-week-0-tasks-on-share-7471283605579898880-ILiW/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADapk6QB4YPpujCaTHNEjLTFzWs0c5QVFVQ
 ```
 
 ---
@@ -227,7 +220,19 @@ Add your URL here...
 
 Paste the full text of your LinkedIn post here:
 
-Add your post content here...
+so, I just wrapped up my week 0 tasks on Devops Micro Internship by Pravin Mishra. 6 tasks to test the waters ( though it was easy for me to navigate...as an OG 😂 ) here's the breakdown.
+
+ChatGPT (Task 1): Moving past generic AI prompts. I use strict structural constraints to enforce technical truth, like tracing low-level protocol behavior, rather than surface-level oversimplifications.
+
+Internet & Networking (Task 2): Traced how data moves globally to a server. HTTP/HTTPS requests data, TCP/IP chops it into packets labeled with the destination IP Address, and Packet Switching routes them independently across global routers before seamless reassembly.
+
+App Architecture (Task 3): Dissected the structural shift from a basic 2-Tier app (Frontend + DB) to a scalable 3-Tier architecture. Introducing a dedicated Backend application tier isolates business logic, making the system secure and independently scalable.
+
+DNS (Task 4): The internet's phonebook. explored how the DNS maps a human-readable domain directly to an IPv4 server address, using the A Record (Address Record) to point traffic straight to the host.
+
+VS Code Setup (Task 5): I set up my vscode, ready for the journey.
+
+P.S. This post is part of the FREE DevOps Micro Internship Cohort run by Pravin Mishra. You can start your DevOps journey for free from his YouTube Playlist @ https://lnkd.in/dkch6rEq
 
 ---
 
@@ -235,19 +240,19 @@ Add your post content here...
 
 ### What did you find easy?
 
-Add your answer here...
+Using ChatGPT to break down networking concepts felt natural, and the VS Code setup was straightforward since I already work in a Linux environment. The high-level ideas (DNS as a phonebook, protocols as shared rules) clicked quickly with real-life analogies.
 
 ---
 
 ### What was difficult?
 
-Add your answer here...
+Condensing the internet/networking explanation into 100–150 words while still covering packet switching, IP, TCP/IP, and HTTP/HTTPS accurately took a few rewrites. Deciding what to leave out was harder than deciding what to include.
 
 ---
 
 ### What will you improve next week?
 
-Add your answer here...
+I want to rely less on analogies and more on hands-on verification — e.g., using `dig`, `ping`, and `traceroute` to actually observe DNS resolution and packet routing instead of just describing them. I'll also start my assignments earlier in the week to leave time for review.
 
 ---
 
