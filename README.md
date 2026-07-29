@@ -133,7 +133,7 @@ Week 02 → Agentic AI with Claude Code
 | 00 | Internet & Networking Basics | ✅ Completed | ✅ Completed | [LinkedIn Post](https://www.linkedin.com/posts/chuka-unigwe_so-i-just-wrapped-up-my-week-0-tasks-on-share-7471283605579898880-ILiW/) | [My DevOps Journey with DMI](https://medium.com/@nerdymax84/my-devops-journey-with-dmi-75471cb5fead) |
 | 01 | Success Mindset | ✅ Completed | ✅ Completed | [LinkedIn Post](https://www.linkedin.com/posts/chuka-unigwe_join-the-dmi-devops-micro-internship-share-7478340347648208896-AJED/) | [The Architect of Scale](https://medium.com/@nerdymax84/the-architect-of-scale-how-one-engineer-rewrote-the-infrastructure-playbook-3427c67d0813) |
 | 02 | Agentic AI with Claude Code | ✅ Completed | ✅ Completed | [LinkedIn Post](https://www.linkedin.com/posts/chuka-unigwe_join-the-dmi-devops-micro-internship-share-7487943456858923008-s-av/) | [Reflection — Week 2](https://medium.com/@nerdymax84/reflection-week-2-f30cbda51c4a) |
-| 03 | Linux & Bash for DevOps | ✅ Completed | ✅ Completed | [LinkedIn Post](https://www.linkedin.com/posts/chuka-unigwe_dmibypravinmishra-devops-linux-share-7487958147333070848-8Ygm/) | ⏳ Pending |
+| 03 | Linux & Bash for DevOps | ✅ Completed | ✅ Completed | [LinkedIn Post](https://www.linkedin.com/posts/chuka-unigwe_dmibypravinmishra-devops-linux-share-7487958147333070848-8Ygm/) | [Reflection — Week 3](https://medium.com/@nerdymax84/week-3-was-the-first-week-of-the-devops-micro-internship-where-nothing-was-theoretical-355e2f8e2914) |
 | 04 | Git & GitHub | 🔄 In Progress | ⏳ Pending | — | — |
 | 05 | DevOps Lifecycle & Agile | ⬜ Not Started | ⏳ Pending | — | — |
 | 06 | AWS Cloud | ⬜ Not Started | ⏳ Pending | — | — |
