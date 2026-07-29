@@ -150,7 +150,7 @@ Paste your LinkedIn post URL here:
 - [x] Screenshot 6: Live website accessible in browser with footer details
 - [x] Screenshot 7: Nginx enabled on boot
 - [x] Screenshot 8: Local HTTP response returns 200 OK
-- [ ] LinkedIn post published and URL submitted
+- [x] LinkedIn post published and URL submitted
 - [x] Full Name visible in all required screenshots
 - [x] No sensitive data exposed
 
