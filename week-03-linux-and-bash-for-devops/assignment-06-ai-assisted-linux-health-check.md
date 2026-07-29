@@ -482,7 +482,7 @@ Paste your LinkedIn post URL here:
 
 #### Screenshot — Published LinkedIn post
 
-Add your screenshot here.
+![Published LinkedIn post on the AI-assisted Linux health check, showing the linux-triage skill, the CLAUDE.md safety contract, and the Incident Triage Report output](./screenshots/ss314.png)
 
 ---
 
